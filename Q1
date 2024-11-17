@@ -1,0 +1,35 @@
+#include <iostream>
+#include <unordered_map>
+#include <string>
+
+using namespace std;
+
+unordered_map<char, int> char_frequency(const string& str) {
+    unordered_map<char, int> freq;
+
+    for (char c : str) {
+        freq[c]++;
+    }
+
+    return freq;
+}
+
+int main() {
+    string str1 = "HelloWorld";
+    string str2 = "C++STL";
+
+    unordered_map<char, int> freq1 = char_frequency(str1);
+    unordered_map<char, int> freq2 = char_frequency(str2);
+
+    cout << "Frequency of characters in \"" << str1 << "\":\n";
+    for (const auto& pair : freq1) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+
+    cout << "\nFrequency of characters in \"" << str2 << "\":\n";
+    for (const auto& pair : freq2) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+
+    return 0;
+}
